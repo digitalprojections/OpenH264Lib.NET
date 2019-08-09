@@ -202,18 +202,18 @@ namespace OpenH264Sample
             return ((int)fourCC[3]) << 24 | ((int)fourCC[2]) << 16 | ((int)fourCC[1]) << 8 | ((int)fourCC[0]);
         }
 
-        #region "Struncture Marshalling"
+        #region "Structure Marshalling"
 
         private static byte[] StructureToBytes<T>(T st) where T : struct
         {
-            int size = System.Runtime.InteropServices.Marshal.SizeOf(st);
-            IntPtr ptr = System.Runtime.InteropServices.Marshal.AllocHGlobal(size);
-            System.Runtime.InteropServices.Marshal.StructureToPtr(st, ptr, false);
+            int size = Marshal.SizeOf(st);
+            IntPtr ptr = Marshal.AllocHGlobal(size);
+            Marshal.StructureToPtr(st, ptr, false);
 
             byte[] data = new byte[size];
-            System.Runtime.InteropServices.Marshal.Copy(ptr, data, 0, size);
+            Marshal.Copy(ptr, data, 0, size);
 
-            System.Runtime.InteropServices.Marshal.FreeHGlobal(ptr);
+            Marshal.FreeHGlobal(ptr);
             return data;
         }
         

@@ -26,6 +26,7 @@ namespace OpenH264Sample
             {
                 H264Encode(dialog.FileNames, (int)nudFps.Value);
             }
+            
         }
 
         private void H264Encode(string[] paths, int fps)
