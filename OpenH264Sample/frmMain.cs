@@ -18,15 +18,14 @@ namespace OpenH264Sample
 
         private void btnEncode_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Select images to encord H264 AVI.\nImages must be same width & height.");
+            MessageBox.Show("Select images to encode H264 AVI.\nImages must be same width & height.");
 
             var dialog = new OpenFileDialog() { Multiselect = true };
             dialog.Filter = "Image Files (*.bmp, *.png, *.jpg)|*.bmp;*.png;*.jpg";
             if (dialog.ShowDialog() == DialogResult.OK)
             {
                 H264Encode(dialog.FileNames, (int)nudFps.Value);
-            }
-            
+            }            
         }
 
         private void H264Encode(string[] paths, int fps)
